@@ -1,6 +1,6 @@
 package fr.isen.lemoal.androiderestaurant
 
-import EntreeActivity
+
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -8,18 +8,13 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import fr.isen.lemoal.androiderestaurant.ui.theme.AndroidERestaurantTheme
 import androidx.compose.material3.MaterialTheme
@@ -87,13 +82,13 @@ class HomeActivity : ComponentActivity() {
                             // I want the buttons to be centered horizontally
                             Button(
                                 onClick = {
-                                    // Handle button click for ENTREE
-                                    showToast("ENTREE clicked")
+                                        // Handle button click for ENTREE
+                                        showToast("Entrées clicked")
 
-                                    Context.startActivity(Intent(this@HomeActivity, EntreeActivity::class.java))
-
-
-
+                                        val intent = Intent(this@HomeActivity, RepasActivity::class.java)
+                                        intent.putExtra("menuType", "Entrées")
+                                        intent.putExtra("title", "Entrées") // or "Plats" or "Dessert"
+                                        Context.startActivity(intent)
                                 },
                                 colors = ButtonDefaults.buttonColors(
                                     containerColor = Color.Yellow
@@ -104,7 +99,7 @@ class HomeActivity : ComponentActivity() {
                                     .fillMaxWidth()
                                     .align(Alignment.CenterHorizontally)
                             ) {
-                                Text("ENTREE")
+                                Text("Entrées")
                             }
                             // I want to add spaces between the buttons
                             Spacer(modifier = Modifier.width(8.dp))
@@ -112,7 +107,13 @@ class HomeActivity : ComponentActivity() {
                             Button(
                                 onClick = {
                                     // Handle button click for PLAT
-                                    showToast("PLAT clicked")
+                                    showToast("Plats clicked")
+
+                                    val intent = Intent(this@HomeActivity, RepasActivity::class.java)
+                                    intent.putExtra("menuType", "Plats")
+                                    intent.putExtra("title", "Plats") // or "Plats" or "Dessert"
+                                    Context.startActivity(intent)
+
                                 },
                                 colors = ButtonDefaults.buttonColors(
                                     containerColor = Color.Yellow
@@ -123,13 +124,20 @@ class HomeActivity : ComponentActivity() {
                                     .fillMaxWidth()
                                     .align(Alignment.CenterHorizontally)
                             ) {
-                                Text("PLAT")
+                                Text("Plats")
                             }
 
                             Button(
                                 onClick = {
                                     // Handle button click for DESSERT
-                                    showToast("DESSERT clicked")
+                                    showToast("Desserts clicked")
+
+                                    val intent = Intent(this@HomeActivity, RepasActivity::class.java)
+                                    intent.putExtra("menuType", "Desserts")
+                                    intent.putExtra("title", "Desserts") // or "Plats" or "Dessert"
+
+
+                                    Context.startActivity(intent)
                                 },
                                 colors = ButtonDefaults.buttonColors(
                                     containerColor = Color.Yellow
@@ -140,7 +148,7 @@ class HomeActivity : ComponentActivity() {
                                     .fillMaxWidth()
                                     .align(Alignment.CenterHorizontally)
                             ) {
-                                Text("DESSERT")
+                                Text("Desserts")
                             }
                         }
                     }

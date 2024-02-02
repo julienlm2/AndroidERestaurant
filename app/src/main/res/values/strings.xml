@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">AndroidERestaurant</string>
+
+    <string-array name="entrees">
+        <item>Salade César</item>
+        <item>Bruschetta</item>
+        <item>Soupe au potiron</item>
+    </string-array>
+
+    <string-array name="plats">
+        <item>Lasagnes à la bolognaise</item>
+        <item>Poulet rôti</item>
+        <item>Steak frites</item>
+    </string-array>
+
+    <string-array name="desserts">
+        <item>Tiramisu</item>
+        <item>Crème brûlée</item>
+        <item>Mousse au chocolat</item>
+    </string-array>
+    <string name="title_activity_repas">RepasActivity</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="title_activity_category">CategoryActivity</string>
 </resources>
